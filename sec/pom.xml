@@ -6,7 +6,7 @@
     <parent>
         <groupId>com.vasnatech</groupId>
         <artifactId>dumrul</artifactId>
-        <version>0.1</version>
+        <version>0.2</version>
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
@@ -55,6 +55,11 @@
             <scope>compile</scope>
         </dependency>
         <dependency>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-jpa</artifactId>
+            <version>3.3.2</version>
+        </dependency>
+        <dependency>
             <groupId>org.mariadb.jdbc</groupId>
             <artifactId>mariadb-java-client</artifactId>
             <version>3.1.4</version>
@@ -84,12 +89,6 @@
             <version>${org.mockito.version}</version>
             <scope>test</scope>
         </dependency>
-        <dependency>
-            <groupId>jakarta.persistence</groupId>
-            <artifactId>jakarta.persistence-api</artifactId>
-            <version>3.1.0</version>
-            <scope>compile</scope>
-        </dependency>
     </dependencies>
 
     <build>
@@ -109,7 +108,7 @@
                 <executions>
                     <execution>
                         <id>sql/mysql</id>
-                        <phase>compile</phase>
+                        <phase>generate-resources</phase>
                         <goals>
                             <goal>katip</goal>
                         </goals>
@@ -134,7 +133,7 @@
                     </execution>
                     <execution>
                         <id>schema/entity</id>
-                        <phase>compile</phase>
+                        <phase>generate-resources</phase>
                         <goals>
                             <goal>katip</goal>
                         </goals>
@@ -160,7 +159,7 @@
                     </execution>
                     <execution>
                         <id>jpa/hibernate</id>
-                        <phase>compile</phase>
+                        <phase>generate-sources</phase>
                         <goals>
                             <goal>katip</goal>
                         </goals>
@@ -170,12 +169,38 @@
                                 <template>jpa/hibernate</template>
                                 <out>${project.basedir}/generated-src/main/java</out>
                                 <parameters>
-                                    <package>com.vasnatech.dumrul</package>
+                                    <package>com.vasnatech.dumrul.entity</package>
                                     <dialect>org.hibernate.dialect.MariaDB103Dialect</dialect>
                                     <connectionUrl>jdbc:mariadb://localhost:3306/dumrul</connectionUrl>
                                     <connectionUsername>developer</connectionUsername>
                                     <connectionPassword>developer</connectionPassword>
                                     <connectionDriverClass>org.mariadb.jdbc.Driver</connectionDriverClass>
+                                </parameters>
+                                <datationSchemas>
+                                    <schemas>
+                                        <mediaType>json</mediaType>
+                                        <normalize>true</normalize>
+                                        <validate>true</validate>
+                                        <path>${project.basedir}/src/main/resources/entity-schema.json</path>
+                                    </schemas>
+                                </datationSchemas>
+                            </project>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>jpa/spring</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>katip</goal>
+                        </goals>
+                        <configuration>
+                            <modules>entity</modules>
+                            <project>
+                                <template>jpa/spring</template>
+                                <out>${project.basedir}/generated-src/main/java</out>
+                                <parameters>
+                                    <package>com.vasnatech.dumrul.repository</package>
+                                    <entityPackage>com.vasnatech.dumrul.entity</entityPackage>
                                 </parameters>
                                 <datationSchemas>
                                     <schemas>

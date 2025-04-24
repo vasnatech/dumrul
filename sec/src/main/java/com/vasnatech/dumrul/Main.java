@@ -2,8 +2,8 @@ package com.vasnatech.dumrul;
 
 import com.vasnatech.commons.random.Randoms;
 import com.vasnatech.dumrul.hibernate.HibernateUtil;
-import com.vasnatech.dumrul.sec.Authority;
-import com.vasnatech.dumrul.sec.User;
+import com.vasnatech.dumrul.entity.sec.Authority;
+import com.vasnatech.dumrul.entity.sec.User;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
