@@ -46,9 +46,6 @@ public class Main {
             List<User> books = session.createQuery("from User", User.class).list();
             books.forEach(b -> System.out.println("Print user name : " + b.getName()));
         } catch (Exception e) {
-            if (transaction != null) {
-                transaction.rollback();
-            }
             e.printStackTrace();
         }
     }

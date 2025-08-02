@@ -122,10 +122,10 @@
                                 </parameters>
                                 <datationSchemas>
                                     <schemas>
-                                        <mediaType>json</mediaType>
+                                        <mediaType>yaml</mediaType>
                                         <normalize>true</normalize>
                                         <validate>true</validate>
-                                        <path>${project.basedir}/src/main/resources/ddl-schema.json</path>
+                                        <path>${project.basedir}/src/main/resources/ddl-schema.yaml</path>
                                     </schemas>
                                 </datationSchemas>
                             </project>
@@ -143,15 +143,15 @@
                                 <template>schema/entity</template>
                                 <out>${project.basedir}/generated-src/main/resources/schemas/datation</out>
                                 <parameters>
-                                    <ddlSchema>${project.basedir}/src/main/resources/ddl-schema.json</ddlSchema>
-                                    <entitySchema>entity-schema.json</entitySchema>
+                                    <ddlSchema>${project.basedir}/src/main/resources/ddl-schema.yaml</ddlSchema>
+                                    <entitySchema>entity-schema.yaml</entitySchema>
                                 </parameters>
                                 <datationSchemas>
                                     <schemas>
-                                        <mediaType>json</mediaType>
+                                        <mediaType>yaml</mediaType>
                                         <normalize>true</normalize>
                                         <validate>true</validate>
-                                        <path>${project.basedir}/src/main/resources/ddl-schema.json</path>
+                                        <path>${project.basedir}/src/main/resources/ddl-schema.yaml</path>
                                     </schemas>
                                 </datationSchemas>
                             </project>
@@ -178,10 +178,10 @@
                                 </parameters>
                                 <datationSchemas>
                                     <schemas>
-                                        <mediaType>json</mediaType>
+                                        <mediaType>yaml</mediaType>
                                         <normalize>true</normalize>
                                         <validate>true</validate>
-                                        <path>${project.basedir}/src/main/resources/entity-schema.json</path>
+                                        <path>${project.basedir}/src/main/resources/entity-schema.yaml</path>
                                     </schemas>
                                 </datationSchemas>
                             </project>
@@ -204,10 +204,10 @@
                                 </parameters>
                                 <datationSchemas>
                                     <schemas>
-                                        <mediaType>json</mediaType>
+                                        <mediaType>yaml</mediaType>
                                         <normalize>true</normalize>
                                         <validate>true</validate>
-                                        <path>${project.basedir}/src/main/resources/entity-schema.json</path>
+                                        <path>${project.basedir}/src/main/resources/entity-schema.yaml</path>
                                     </schemas>
                                 </datationSchemas>
                             </project>
